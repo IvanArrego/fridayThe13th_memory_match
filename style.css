@@ -1,0 +1,73 @@
+body{
+    margin: 0;
+}
+.nav{
+    text-align: center;
+}
+.logo{
+    background-color: aqua;
+    width: 20%;
+    height: 10vh;
+    /*background-image: url("Matching Game Pics/F13.png");*/
+}
+.header{
+    background-color: lightcoral;
+    height: 30vh;
+    text-align: center;
+    font-size: 30px;
+}
+.game-area-container{
+    background-color: pink;
+    height: 70vh;
+    display: flex;
+}
+.stats-area{
+    height: 100%;
+    width: 35%;
+    background-color: lightgreen;
+}
+.time-played{
+    height: 20%;
+    background-color: indianred;
+    border: 2px solid;
+
+}
+.times-tried{
+    height: 20%;
+    background-color: lightcyan;
+    border: 2px solid;
+}
+.accuracy{
+    height: 20%;
+    background-color: lightseagreen;
+    border: 2px solid;
+}
+.container{
+    height: 100%;
+    width: 65%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+}
+.card{
+    height: 100%;
+    width: 90%;
+    position: relative;
+    top: 2%;
+    left: 5%;
+
+}
+.front{
+    background-image: url("Matching Game Pics/Jason_Part_8_Steam_Card_Friday_the_13th_the_game.png");
+}
+.back{
+    background-image: url("Matching Game Pics/F13.png");
+}
+.front, .back{
+    height:90%;
+    width: 100%;
+    position: absolute;
+}
+.card:hover >.back{
+    display: none;
+}
