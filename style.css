@@ -68,6 +68,6 @@ body{
     width: 100%;
     position: absolute;
 }
-.card:hover >.back{
-    display: none;
-}
+/*.card:hover >.back{*/
+    /*display: none;*/
+/*}*/
