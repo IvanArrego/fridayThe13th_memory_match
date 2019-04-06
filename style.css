@@ -20,10 +20,15 @@ body{
     background-color: pink;
     height: 70vh;
     display: flex;
+    width: 100%;
+}
+.cardContainer{
+    width:100%;
+    display: flex;
 }
 .stats-area{
     height: 100%;
-    width: 35%;
+    width: 10%;
     background-color: lightgreen;
 }
 .time-played{
@@ -43,28 +48,35 @@ body{
     border: 2px solid;
 }
 .container{
-    height: 100%;
-    width: 65%;
-    float: left;
-    display: flex;
-    flex-direction: column;
+    height: 33.33%;
+    width: 100%;
+    margin: auto;
 }
 .card{
-    height: 100%;
+    height: 90%;
     width: 90%;
     position: relative;
-    top: 2%;
+    top: 5%;
     left: 5%;
 
+
 }
-.front{
-    background-image: url("Matching Game Pics/Jason_Part_8_Steam_Card_Friday_the_13th_the_game.png");
+.hide{
+    display: none;
 }
+/*.imageFront{*/
+    /*width:80%;*/
+    /*display: flex;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+/*}*/
+
 .back{
-    background-image: url("Matching Game Pics/F13.png");
+    background-image: url("images/F13.png");
+
 }
-.front, .back{
-    height:90%;
+.imageFront, .back{
+    height:100%;
     width: 100%;
     position: absolute;
 }
