@@ -4,12 +4,19 @@ var second_card_clicked = null;
 var total_possible_matches = 9;
 var match_counter = 0;
 var can_click_card = true;
+var matches = 0;
+var attempts = 0;
+var accuracy = 0;
+var games_played = 0;
+var images = ['Image1.png','Image2.png','Image3.png','Image4.png','Image5.png','Image6.png','Image7.png','Image8.png','Image9.png'];
 
-
-var images = ['Image1.png','Image2.png','Image3.png','Image4.png','Image5.png','Image6.png','Image7.png','Image8.png','Image9.png']; //'Image3.png','Image4','Image5','Image6','Image7','Image8','Image9'
 function initializeApp() {
+
     randomizeAndGenerateCards();
+    display_stats();
     $('.card').click(cardClicked);
+    startAudio();
+
 
 }
 
@@ -18,7 +25,6 @@ function randomizeAndGenerateCards(){
     shuffle(doubleImages);
 
     for (var i =0; i < doubleImages.length;i++){
-        var cardContainerArea = $('<div>').addClass('cardContainer');
         var container = $('<div>').addClass('container');
         var card = $('<div>').addClass('card');
         var frontOfCard = $('<div>').addClass('front');
@@ -27,15 +33,10 @@ function randomizeAndGenerateCards(){
         frontOfCard.append(imageOfCard);
         card.append(frontOfCard,backOfCard);
         container.append(card);
-        cardContainerArea.append(container);
-        $('.game-area-container').append(cardContainerArea);
-
-
+        $('.card-area').append(container);
     }
-
-
-
 }
+
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -51,9 +52,9 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-
     return array;
 }
+
 function cardClicked(){
     if(can_click_card === false) {
         return;
@@ -68,26 +69,65 @@ function cardClicked(){
         var second_card_src = second_card_clicked.find('.front img').attr('src');
         if(first_card_src === second_card_src){
             match_counter++;
+            matches++;
+            attempts++;
+            accuracy = matches/attempts;
+            display_stats();
             first_card_clicked = null;
             second_card_clicked = null;
-            if(match_counter === total_possible_matches){
+            if(matches === total_possible_matches){
                 alert('You have won!');
             }
 
         }else{
-            setTimeout(hideBothCards, 100);
-            // can_click_card = false;
+            setTimeout(hideBothCards, 500);
+            attempts++;
+            accuracy = matches/attempts;
+            display_stats();
+
         }
     }
 }
+
 function hideBothCards(){
+    can_click_card = false;
     first_card_clicked.find('.back').removeClass('hide');
     second_card_clicked.find('.back').removeClass('hide');
     first_card_clicked = null;
     second_card_clicked = null;
     can_click_card = true;
 }
+function display_stats(){
+    var games_played_stats = $('<div>').addClass('games-played');
+    $('.time-played').append(games_played_stats).html('Games played:' + ' ' + games_played);
+    $('.times-tried').html('Attempts this game:' + ' ' + attempts);
+    var formattedAccuracy = accuracy.toFixed(2) + '%';
+    $('.accuracy').html('Chance of survival: ' + '' + formattedAccuracy);
+}
+function reset_stats(){
+    accuracy = 0;
+    matches = 0;
+    attempts = 0;
+    display_stats();
+    games_played++;
+    $('.container').find('.back').removeClass('hide');//this should reset all cards that are flipped back to the back image
 
+}
+function resetGame(){
+    reset_stats();
+    display_stats();
+    $('.card-area').empty();
+    initializeApp();
+}
 
+function startAudio() {
+    $('.card-area').onload(playSound);
+}
+
+function playSound() {
+    var player = new Audio('http://www.campblood.net/audio/audio1/1chchch1.wav');
+    player.volume = .7;
+    player.play();
+}
 
 
