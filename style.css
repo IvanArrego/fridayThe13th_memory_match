@@ -95,3 +95,34 @@ body{
     width: 100%;
     position: absolute;
 }
+
+.rules{
+    visibility: hidden;
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+    width: 100%;
+}
+.rules-content{
+    visibility: hidden;
+    text-align: center;
+    
+}
+.rules.active , .rules-content.active{
+    visibility:visible;
+}
+
+.modal-content{
+    position: fixed;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    
+}
+.modal-title{
+    background-color: white;
+}
+.hide{
+    display: none;
+}
+
