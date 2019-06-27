@@ -16,6 +16,7 @@ function initializeApp() {
     display_stats();
     $('.card').click(cardClicked);
     startAudio();
+    rulesModal();
 
 
 }
@@ -66,8 +67,15 @@ function cardClicked(){
         second_card_clicked = $(this);
         second_card_clicked.find('.back').addClass('hide');
         var first_card_src =  first_card_clicked.find('.front img').attr('src');
+        console.log(first_card_src);
         var second_card_src = second_card_clicked.find('.front img').attr('src');
+        if(first_card_src === 'images/Image6.png' || second_card_src === 'images/Image6.png' ){
+            playSound();
+        }
         if(first_card_src === second_card_src){
+            if(first_card_src === 'images/Image6.png' && second_card_src === 'images/Image6.png' || first_card_src === 'images/Image7.png' && second_card_src === 'images/Image7.png'){
+                alert('You have lost');
+            }
             match_counter++;
             matches++;
             attempts++;
@@ -121,13 +129,22 @@ function resetGame(){
 }
 
 function startAudio() {
-    $('.card-area').onload(playSound);
+    $('.card-area').on("load",playSound);
 }
 
 function playSound() {
-    var player = new Audio('http://www.campblood.net/audio/audio1/1chchch1.wav');
+    var player = new Audio('./audio/1chchch1.wav');
     player.volume = .7;
     player.play();
 }
 
+function rulesModal(){
+    var rulesButton = $('.rulesButton');
+    var rulesContent = $('.rules-content');
+    rulesButton.on('click', function(){
+        $('.rules, .rules-content').addClass('active')});
+    rulesContent.on("click", function(){
+        $(".rules, .rules-content").removeClass("active")});
+
+}
 
