@@ -112,17 +112,42 @@ body{
     visibility:visible;
 }
 
-.modal-content{
-    position: fixed;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    
+.rules-Button, .reset-button{
+    display: inline-block;
 }
-.modal-title{
+
+.win-Modal{
+    visibility: hidden;
+    position: absolute;
     background-color: white;
+    z-index: 1;
+    width: 100%;
 }
+.win-Message{
+    visibility: hidden;
+    text-align: center;
+}
+
+.win-Modal.active , .win-Message.active{
+    visibility:visible;
+}
+
+.lose-Modal{
+    visibility: hidden;
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+    width: 100%;
+}
+.lose-Message{
+    visibility: hidden;
+    text-align: center;
+}
+
+.lose-Modal.active , .lose-Message.active{
+    visibility:visible;
+}
+
 .hide{
     display: none;
 }
-

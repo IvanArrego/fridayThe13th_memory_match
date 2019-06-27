@@ -1,7 +1,7 @@
 $(document).ready(initializeApp);
 var first_card_clicked = null;
 var second_card_clicked = null;
-var total_possible_matches = 9;
+var total_possible_matches = 7;
 var match_counter = 0;
 var can_click_card = true;
 var matches = 0;
@@ -67,24 +67,27 @@ function cardClicked(){
         second_card_clicked = $(this);
         second_card_clicked.find('.back').addClass('hide');
         var first_card_src =  first_card_clicked.find('.front img').attr('src');
-        console.log(first_card_src);
         var second_card_src = second_card_clicked.find('.front img').attr('src');
         if(first_card_src === 'images/Image6.png' || second_card_src === 'images/Image6.png' ){
             playSound();
         }
         if(first_card_src === second_card_src){
             if(first_card_src === 'images/Image6.png' && second_card_src === 'images/Image6.png' || first_card_src === 'images/Image7.png' && second_card_src === 'images/Image7.png'){
-                alert('You have lost');
+                loseModal();
+                return null;
             }
+            console.log('pre' , matches);
             match_counter++;
+
             matches++;
+            console.log('post' , matches);
             attempts++;
             accuracy = matches/attempts;
             display_stats();
             first_card_clicked = null;
             second_card_clicked = null;
             if(matches === total_possible_matches){
-                alert('You have won!');
+                winModal();
             }
 
         }else{
@@ -148,3 +151,18 @@ function rulesModal(){
 
 }
 
+function winModal(){
+    var winModal = $('.win-Message');
+    $('.win-Modal, .win-Message').addClass('active');
+    winModal.on('click', function(){
+        $('.win-Modal, .win-Message').removeClass('active');
+})
+};
+
+function loseModal(){
+    var loserModal = $('.lose-Message');
+    $('.lose-Modal, .lose-Message').addClass('active');
+    loserModal.on('click', function(){
+        $('.lose-Modal, .lose-Message').removeClass('active');
+})
+};
