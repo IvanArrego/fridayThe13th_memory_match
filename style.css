@@ -88,7 +88,10 @@ body{
 .back{
     background-image: url("images/F13.png");
     background-size: contain;
+}
 
+.container:hover{
+    background-color: darkred;  
 }
 .imageFront, .back{
     height:100%;
@@ -106,7 +109,6 @@ body{
 .rules-content{
     visibility: hidden;
     text-align: center;
-    
 }
 .rules.active , .rules-content.active{
     visibility:visible;
