@@ -1,11 +1,15 @@
+@font-face{
+    font-family: danger;
+    src: url("./font/browncrow.otf");
+}
 body{
     margin: 0;
     height:100vh;
     background-color: black;
+    color: white;
+    font-family: danger;
 }
-.nav{
-    text-align: center;
-}
+
 .link{
     color: white;
 }
@@ -15,7 +19,6 @@ body{
     background-repeat: no-repeat;
     width: 20%;
     height: 10vh;
-    /*background-image: url("Matching Game Pics/F13.png");*/
 }
 .header{
     height: 20%;
@@ -23,15 +26,12 @@ body{
     font-size: 30px;
     background-image: url("images/header1.png");
     background-repeat: no-repeat;
-    width: 100%;
-    color: white;
+    background-size: cover;
 }
 .game-area{
     height: 80%;
-
 }
 .game-area-container{
-    /*background-color: pink;*/
     height: 100%;
 }
 .card-area{
@@ -39,7 +39,7 @@ body{
     width: 84%;
     height: 100%;
     background-image: url("images/background.png");
-    background-size: contain;
+    background-size: cover;
 }
 .stats-area{
     height: 100%;
@@ -48,25 +48,13 @@ body{
     vertical-align: top;
     background-color: black;
     color: white;
+    font-size: 30px;
 }
-.time-played{
+.time-played, .games-played, .accuracy{
     height: 20%;
-    border: 2px solid;
-
-}
-.games-played{
-    height: 20%;
-    border: 2px solid;
-    align-content: center;
-
 }
 .times-tried{
     height: 30%;
-    border: 2px solid;
-}
-.accuracy{
-    height: 20%;
-    border: 2px solid;
 }
 .container{
     height: 33%;
@@ -81,75 +69,37 @@ body{
     top: 5%;
     left: 5%;
 }
-.hide{
-    display: none;
-}
-
 .back{
     background-image: url("images/F13.png");
     background-size: contain;
 }
-
 .container:hover{
     background-color: darkred;  
 }
-.imageFront, .back{
+.image-front, .back{
     height:100%;
     width: 100%;
     position: absolute;
 }
-
-.rules{
+.rules, .game-modal{
     visibility: hidden;
     position: absolute;
     background-color: white;
     z-index: 1;
     width: 100%;
-}
-.rules-content{
-    visibility: hidden;
     text-align: center;
+    color: black;
 }
-.rules.active , .rules-content.active{
+
+.rules.active, .win-modal.active, .lose-modal.active {
     visibility:visible;
 }
-
-.rules-Button, .reset-button{
-    display: inline-block;
+.rules-btn, .reset{
+    background-color: darkred;
+    color: white;
+    font-family: danger;
+    font-size: 30px;
 }
-
-.win-Modal{
-    visibility: hidden;
-    position: absolute;
-    background-color: white;
-    z-index: 1;
-    width: 100%;
-}
-.win-Message{
-    visibility: hidden;
-    text-align: center;
-}
-
-.win-Modal.active , .win-Message.active{
-    visibility:visible;
-}
-
-.lose-Modal{
-    visibility: hidden;
-    position: absolute;
-    background-color: white;
-    z-index: 1;
-    width: 100%;
-}
-.lose-Message{
-    visibility: hidden;
-    text-align: center;
-}
-
-.lose-Modal.active , .lose-Message.active{
-    visibility:visible;
-}
-
 .hide{
     display: none;
 }

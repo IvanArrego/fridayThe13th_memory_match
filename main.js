@@ -9,28 +9,24 @@ var attempts = 0;
 var accuracy = 0;
 var games_played = 0;
 var images = ['Image1.png','Image2.png','Image3.png','Image4.png','Image5.png','Image6.png','Image7.png','Image8.png','Image9.png'];
-
+var jasonImage1 = 'images/Image6.png';
+var jasonImage2 = 'images/Image7.png';
 function initializeApp() {
-
     randomizeAndGenerateCards();
     display_stats();
     $('.card').click(cardClicked);
     startAudio();
     rulesModal();
-
-
 }
-
 function randomizeAndGenerateCards(){
     var doubleImages = images.concat(images);
     shuffle(doubleImages);
-
     for (var i =0; i < doubleImages.length;i++){
         var container = $('<div>').addClass('container');
         var card = $('<div>').addClass('card');
         var frontOfCard = $('<div>').addClass('front');
         var backOfCard = $('<div>').addClass('back');
-        var imageOfCard = $('<img>').addClass('imageFront').attr('src','images/'+doubleImages[i]);
+        var imageOfCard = $('<img>').addClass('image-front').attr('src','images/'+doubleImages[i]);
         frontOfCard.append(imageOfCard);
         card.append(frontOfCard,backOfCard);
         container.append(card);
@@ -40,15 +36,9 @@ function randomizeAndGenerateCards(){
 
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
-
-    // While there remain elements to shuffle...
     while (0 !== currentIndex) {
-
-        // Pick a remaining element...
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
-
-        // And swap it with the current element.
         temporaryValue = array[currentIndex];
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
@@ -68,17 +58,16 @@ function cardClicked(){
         second_card_clicked.find('.back').addClass('hide');
         var first_card_src =  first_card_clicked.find('.front img').attr('src');
         var second_card_src = second_card_clicked.find('.front img').attr('src');
-        if(first_card_src === 'images/Image6.png' || second_card_src === 'images/Image6.png' ){
+        if(first_card_src === jasonImage1 || second_card_src === jasonImage1 || first_card_src === jasonImage2 || second_card_src === jasonImage2){
             playSound();
         }
         if(first_card_src === second_card_src){
-            if(first_card_src === 'images/Image6.png' && second_card_src === 'images/Image6.png' || first_card_src === 'images/Image7.png' && second_card_src === 'images/Image7.png'){
+            if(first_card_src === jasonImage1 && second_card_src === jasonImage1 || first_card_src === jasonImage2 && second_card_src === jasonImage2){
                 loseModal();
                 return null;
             }
             console.log('pre' , matches);
             match_counter++;
-
             matches++;
             console.log('post' , matches);
             attempts++;
@@ -89,17 +78,14 @@ function cardClicked(){
             if(matches === total_possible_matches){
                 winModal();
             }
-
         }else{
             setTimeout(hideBothCards, 500);
             attempts++;
             accuracy = matches/attempts;
             display_stats();
-
         }
     }
 }
-
 function hideBothCards(){
     can_click_card = false;
     first_card_clicked.find('.back').removeClass('hide');
@@ -121,8 +107,7 @@ function reset_stats(){
     attempts = 0;
     display_stats();
     games_played++;
-    $('.container').find('.back').removeClass('hide');//this should reset all cards that are flipped back to the back image
-
+    $('.container').find('.back').removeClass('hide');
 }
 function resetGame(){
     reset_stats();
@@ -130,39 +115,33 @@ function resetGame(){
     $('.card-area').empty();
     initializeApp();
 }
-
 function startAudio() {
     $('.card-area').on("load",playSound);
 }
-
 function playSound() {
     var player = new Audio('./audio/1chchch1.wav');
     player.volume = .7;
     player.play();
 }
-
 function rulesModal(){
-    var rulesButton = $('.rulesButton');
+    var rulesButton = $('.rules-btn');
     var rulesContent = $('.rules-content');
     rulesButton.on('click', function(){
-        $('.rules, .rules-content').addClass('active')});
+        $('.rules').addClass('active')});
     rulesContent.on("click", function(){
         $(".rules, .rules-content").removeClass("active")});
-
 }
-
 function winModal(){
-    var winModal = $('.win-Message');
-    $('.win-Modal, .win-Message').addClass('active');
+    var winModal = $('.win-message');
+    $('.win-modal, .win-message').addClass('active');
     winModal.on('click', function(){
-        $('.win-Modal, .win-Message').removeClass('active');
+        $('.win-modal, .win-message').removeClass('active');
 })
 };
-
 function loseModal(){
-    var loserModal = $('.lose-Message');
-    $('.lose-Modal, .lose-Message').addClass('active');
+    var loserModal = $('.lose-message');
+    $('.lose-modal, .lose-message').addClass('active');
     loserModal.on('click', function(){
-        $('.lose-Modal, .lose-Message').removeClass('active');
+        $('.lose-modal, .lose-message').removeClass('active');
 })
 };
