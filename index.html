@@ -8,63 +8,54 @@
         <script src="main.js"></script>
     </head>
     <body>
-        <div class = "nav">
-            <div class = "header">Welcome to Camp Crystal Lake
-                <div class = "logo"></div>
-                <a class = 'link' href="hardmode.html">Hard Mode</a>
-                
-                
+        <div class="nav">
+            <div class="header">Welcome to Camp Crystal Lake
+                <div class="logo"></div>
+                <a class="link" href="hardmode.html">Hard Mode</a>                
                 </button>
             </div>
 
         </div>
 
-        <div class = "game-area">
-                <div class = 'rules'>
-                        <div class = 'rules-content'>
+        <div class="game-area">
+                <div class="rules">
+                        <div class="rules-content">
                             <h4 class="modal-title">Friday the 13th - Memory Match</h4>
                             <h3>Story</h3>
                             <p> This was just a way for you to make some extra cash over the summer. You knew this would be an easy gig, all you would have to do is babysit some kids. <br>
                                 Everything was smooth sailing until he showed up. 
                             </p>
                             <h3>Objective</h3>
-                            <p>
                             <p><strong>Save them</strong><br>
                                 To win you must save all the counselors. You must match 2 of the same counselors to save them but watch out!
                             </p>
                             <p><strong>Lose</strong><br>
                                 If you match 2 of the same Jason card then he has found you. 
                             </p>            
-                            </p>
-                            <button class = 'close'>Close</button>
+                            <button class="close">Close</button>
                         </div>
                 </div>
-                <div class = "win-Modal">
-                    <div class = "win-Message">
+                <div class="win-modal game-modal">
+                    <div class="win-message">
                         <h2>You have saved all the counselors and escape!</h2>
-                        <button class = 'close'>Close</button>
+                        <button class="close">Close</button>
                     </div>
                 </div>
-                <div class = "lose-Modal">
-                        <div class = "lose-Message">
+                <div class="lose-modal game-modal">
+                        <div class = "lose-message">
                             <h2>Jason has found you. There is no escape.</h2>
-                            <button class = 'close'>Close</button>
+                            <button class="close">Close</button>
                         </div>
                     </div>
-            <div class = "game-area-container">
-                <div class = "stats-area" style="text-align: center">Stats Area
-                    <div class = "time-played"> Games played:</div>
-                    <div class = "times-tried"> Attempts this game:</div>
-                    <div class = "accuracy"> Chance of survival:</div>
-                    <!--<button class = "reset" onclick="reset_stats();  display_stats()">Reset The Game</button>-->
-                    <div class = 'reset-button' style="text-align: center">
-                        <button class = 'reset' onclick="resetGame()">Reset</button>
-                    </div>
-                    <div class = 'rules-Button'>
-                        <button class = 'btn rulesButton'>Rules</button>
-                    </div>
+            <div class="game-area-container">
+                <div class="stats-area" style="text-align: center">Stats Area
+                    <div class="time-played"> Games played:</div>
+                    <div class="times-tried"> Attempts this game:</div>
+                    <div class="accuracy"> Chance of survival:</div>
+                    <button class="reset" onclick="resetGame()">Reset</button>
+                    <button class="rules-btn">Rules</button>
                 </div>
-                <div class = 'card-area'></div>
+                <div class="card-area"></div>
         </div>
          
         
