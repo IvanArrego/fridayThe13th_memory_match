@@ -30,7 +30,7 @@ function randomizeAndGenerateCards(){
         var card = $('<div>').addClass('card');
         var frontOfCard = $('<div>').addClass('front');
         var backOfCard = $('<div>').addClass('back');
-        var imageOfCard = $('<img>').addClass('imageFront').attr('src','images/'+doubleImages[i]);
+        var imageOfCard = $('<img>').addClass('image-front').attr('src','images/'+doubleImages[i]);
         frontOfCard.append(imageOfCard);
         card.append(frontOfCard,backOfCard);
         container.append(card);
@@ -121,7 +121,7 @@ function reset_stats(){
     attempts = 0;
     display_stats();
     games_played++;
-    $('.container').find('.back').removeClass('hide');//this should reset all cards that are flipped back to the back image
+    $('.container').find('.back').removeClass('hide');
 
 }
 function resetGame(){
@@ -142,27 +142,24 @@ function playSound() {
 }
 
 function rulesModal(){
-    var rulesButton = $('.rulesButton');
+    var rulesButton = $('.rules-btn');
     var rulesContent = $('.rules-content');
     rulesButton.on('click', function(){
-        $('.rules, .rules-content').addClass('active')});
+        $('.rules').addClass('active')});
     rulesContent.on("click", function(){
         $(".rules, .rules-content").removeClass("active")});
-
 }
-
 function winModal(){
-    var winModal = $('.win-Message');
-    $('.win-Modal, .win-Message').addClass('active');
+    var winModal = $('.win-message');
+    $('.win-modal, .win-message').addClass('active');
     winModal.on('click', function(){
-        $('.win-Modal, .win-Message').removeClass('active');
+        $('.win-modal, .win-message').removeClass('active');
 })
 };
-
 function loseModal(){
-    var loserModal = $('.lose-Message');
-    $('.lose-Modal, .lose-Message').addClass('active');
+    var loserModal = $('.lose-message');
+    $('.lose-modal, .lose-message').addClass('active');
     loserModal.on('click', function(){
-        $('.lose-Modal, .lose-Message').removeClass('active');
+        $('.lose-modal, .lose-message').removeClass('active');
 })
 };

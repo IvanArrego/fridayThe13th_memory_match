@@ -52,10 +52,10 @@ function cardClicked(){
     }
     if (first_card_clicked === null) {
         first_card_clicked = $(this);
-        first_card_clicked.find('.back').addClass('hide');
+        first_card_clicked.parent().addClass('click');
     }else {
         second_card_clicked = $(this);
-        second_card_clicked.find('.back').addClass('hide');
+        second_card_clicked.parent().addClass('click');
         var first_card_src =  first_card_clicked.find('.front img').attr('src');
         var second_card_src = second_card_clicked.find('.front img').attr('src');
         if(first_card_src === jasonImage1 || second_card_src === jasonImage1 || first_card_src === jasonImage2 || second_card_src === jasonImage2){
@@ -79,7 +79,8 @@ function cardClicked(){
                 winModal();
             }
         }else{
-            setTimeout(hideBothCards, 500);
+            can_click_card = false;
+            setTimeout(hideBothCards, 1000);
             attempts++;
             accuracy = matches/attempts;
             display_stats();
@@ -88,8 +89,8 @@ function cardClicked(){
 }
 function hideBothCards(){
     can_click_card = false;
-    first_card_clicked.find('.back').removeClass('hide');
-    second_card_clicked.find('.back').removeClass('hide');
+    first_card_clicked.parent().removeClass('click');
+    second_card_clicked.parent().removeClass('click');
     first_card_clicked = null;
     second_card_clicked = null;
     can_click_card = true;
@@ -107,7 +108,7 @@ function reset_stats(){
     attempts = 0;
     display_stats();
     games_played++;
-    $('.container').find('.back').removeClass('hide');
+    $('.container').parent().removeClass('hide');
 }
 function resetGame(){
     reset_stats();
