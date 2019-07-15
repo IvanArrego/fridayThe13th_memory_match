@@ -147,7 +147,7 @@ function startAudio() {
     $('.card-area').on("load",playSound);
 }
 function playSound() {
-    var player = new Audio('./audio/1chchch1.wav');
+    var player = new Audio('./audio/chchhaha.wav');
     player.volume = .7;
     player.play();
 }
