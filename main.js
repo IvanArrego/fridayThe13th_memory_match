@@ -11,6 +11,7 @@ var games_played = 0;
 var images = ['Image1.png','Image2.png','Image3.png','Image4.png','Image5.png','Image6.png','Image7.png','Image8.png','Image9.png'];
 var jasonImage1 = 'images/Image6.png';
 var jasonImage2 = 'images/Image7.png';
+var hardModeImages = ['Image6.png','Image7.png','Image6.png','Image7.png','Image6.png','Image7.png','Image6.png','Image7.png','Image9.png'];
 function initializeApp() {
     randomizeAndGenerateCards();
     display_stats();
@@ -18,6 +19,16 @@ function initializeApp() {
     startAudio();
     rulesModal();
 }
+
+function initializeHardMode() {
+    $('.card-area').empty();
+    randomizeAndGenerateCardsHardMode();
+    display_stats();
+    $('.card').click(cardClicked);
+    startAudio();
+    rulesModal();
+}
+
 function randomizeAndGenerateCards(){
     var doubleImages = images.concat(images);
     shuffle(doubleImages);
@@ -27,6 +38,22 @@ function randomizeAndGenerateCards(){
         var frontOfCard = $('<div>').addClass('front');
         var backOfCard = $('<div>').addClass('back');
         var imageOfCard = $('<img>').addClass('image-front').attr('src','images/'+doubleImages[i]);
+        frontOfCard.append(imageOfCard);
+        card.append(frontOfCard,backOfCard);
+        container.append(card);
+        $('.card-area').append(container);
+    }
+}
+
+function randomizeAndGenerateCardsHardMode(){
+    var doubleHardModeImages = hardModeImages.concat(hardModeImages);
+    shuffle(doubleHardModeImages);
+    for (var i =0; i < doubleHardModeImages.length;i++){
+        var container = $('<div>').addClass('container');
+        var card = $('<div>').addClass('card');
+        var frontOfCard = $('<div>').addClass('front');
+        var backOfCard = $('<div>').addClass('back');
+        var imageOfCard = $('<img>').addClass('image-front').attr('src','images/'+doubleHardModeImages[i]);
         frontOfCard.append(imageOfCard);
         card.append(frontOfCard,backOfCard);
         container.append(card);
