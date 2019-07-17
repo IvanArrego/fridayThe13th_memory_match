@@ -2,8 +2,10 @@ $(document).ready(initializeApp);
 var first_card_clicked = null;
 var second_card_clicked = null;
 var total_possible_matches = 7;
+var hard_total_possible_matches = 1;
 var match_counter = 0;
 var can_click_card = true;
+var hardMode = false;
 var matches = 0;
 var attempts = 0;
 var accuracy = 0;
@@ -21,8 +23,9 @@ function initializeApp() {
 }
 
 function initializeHardMode() {
+    hardMode = true;
     $('.card-area').empty();
-    randomizeAndGenerateCardsHardMode();
+    randomizeAndGenerateCards();
     display_stats();
     $('.card').click(cardClicked);
     startAudio();
@@ -30,7 +33,11 @@ function initializeHardMode() {
 }
 
 function randomizeAndGenerateCards(){
-    var doubleImages = images.concat(images);
+    if(hardMode === false){
+        var doubleImages = images.concat(images);
+    }else{
+        var doubleImages = hardModeImages.concat(hardModeImages);
+    }
     shuffle(doubleImages);
     for (var i =0; i < doubleImages.length;i++){
         var container = $('<div>').addClass('container');
@@ -44,23 +51,6 @@ function randomizeAndGenerateCards(){
         $('.card-area').append(container);
     }
 }
-
-function randomizeAndGenerateCardsHardMode(){
-    var doubleHardModeImages = hardModeImages.concat(hardModeImages);
-    shuffle(doubleHardModeImages);
-    for (var i =0; i < doubleHardModeImages.length;i++){
-        var container = $('<div>').addClass('container');
-        var card = $('<div>').addClass('card');
-        var frontOfCard = $('<div>').addClass('front');
-        var backOfCard = $('<div>').addClass('back');
-        var imageOfCard = $('<img>').addClass('image-front').attr('src','images/'+doubleHardModeImages[i]);
-        frontOfCard.append(imageOfCard);
-        card.append(frontOfCard,backOfCard);
-        container.append(card);
-        $('.card-area').append(container);
-    }
-}
-
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
     while (0 !== currentIndex) {
@@ -93,10 +83,9 @@ function cardClicked(){
                 loseModal();
                 return null;
             }
-            console.log('pre' , matches);
+            if(hardMode === false){
             match_counter++;
             matches++;
-            console.log('post' , matches);
             attempts++;
             accuracy = matches/attempts;
             display_stats();
@@ -105,6 +94,18 @@ function cardClicked(){
             if(matches === total_possible_matches){
                 winModal();
             }
+        }else{
+            match_counter++;
+            matches++;
+            attempts++;
+            accuracy = matches/attempts;
+            display_stats();
+            first_card_clicked = null;
+            second_card_clicked = null;
+            if(matches === hard_total_possible_matches){
+                winModal();
+            }
+        }
         }else{
             can_click_card = false;
             setTimeout(hideBothCards, 1000);
@@ -138,9 +139,12 @@ function reset_stats(){
     $('.container').parent().removeClass('hide');
 }
 function resetGame(){
+    hardMode = false;
     reset_stats();
     display_stats();
     $('.card-area').empty();
+    first_card_clicked = null;
+    second_card_clicked = null;
     initializeApp();
 }
 function startAudio() {
