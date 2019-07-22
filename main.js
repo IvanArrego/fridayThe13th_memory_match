@@ -125,8 +125,8 @@ function hideBothCards(){
 }
 function display_stats(){
     var games_played_stats = $('<div>').addClass('games-played');
-    $('.time-played').append(games_played_stats).html('Games played:' + ' ' + games_played);
-    $('.times-tried').html('Attempts this game:' + ' ' + attempts);
+    $('.time-played').append(games_played_stats).html('Games played:' + '  <br>   ' + games_played);
+    $('.times-tried').html('Attempts this game:' + '     <br> ' + attempts);
     var formattedAccuracy = accuracy.toFixed(2) + '%';
     $('.accuracy').html('Chance of survival: ' + '' + formattedAccuracy);
 }

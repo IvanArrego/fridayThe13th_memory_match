@@ -17,10 +17,11 @@ body{
     background-image: url("images/logo.png");
     background-size: contain;
     background-repeat: no-repeat;
-    width: 20%;
-    height: 10vh;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
 }
-.header{
+.nav{
     height: 20%;
     text-align: center;
     font-size: 30px;
@@ -28,6 +29,26 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+.header-logo{
+    width: 25%;
+    height: 100%;
+    display: inline-block;
+    left: 0%;
+    position: absolute;
+
+}
+.header-title{
+    width: 75%;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    right: 10%;
+    top: 5%;
+}
+.title{
+    top: 500px;
+}
+
 .game-area{
     height: 80%;
 }
@@ -62,7 +83,7 @@ body{
     margin: auto;
     display: inline-block;
     background-color: transparent;
-    perspective: 1000px;
+    perspective: 1000px; 
 
 }
 .card{
@@ -86,8 +107,8 @@ body{
     backface-visibility: hidden;
 }
 .back{
-    background-image: url("images/F13.png");
-    background-size: contain;
+    background-image: url("images/F13-card-back-option-2.png");
+    background-size: cover;
 }
 .container:hover{
     background-color: darkred;  
