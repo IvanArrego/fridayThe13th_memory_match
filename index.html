@@ -9,10 +9,14 @@
     </head>
     <body>
         <div class="nav">
-            <div class="header">Welcome to Camp Crystal Lake
+            <div class="header-logo">
                 <div class="logo"></div>
-                <a class = "link" href = "javascript:;" onclick="initializeHardMode()">Hard Mode</a>                
             </div>
+            <div class = "header-title">
+                <div class = "title">Welcome to Camp Crystal Lake</div>
+                <a class="link" href="javascript:;" onclick="initializeHardMode()">Hard Mode</a>      
+            </div>          
+            
 
         </div>
 
@@ -47,8 +51,11 @@
                         </div>
                     </div>
             <div class="game-area-container">
-                <div class="stats-area" style="text-align: center">Stats Area
-                    <div class="time-played"> Games played:</div>
+                <div class="stats-area" style="text-align: center">
+                    <div><br>Stats Area</div><br>
+                    <div class="time-played"> Games played:
+                        <div class = games></div>
+                    </div>
                     <div class="times-tried"> Attempts this game:</div>
                     <div class="accuracy"> Chance of survival:</div>
                     <button class="reset" onclick="resetGame()">Reset</button>
