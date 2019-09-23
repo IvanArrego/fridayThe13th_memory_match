@@ -13,6 +13,9 @@ body{
 .link{
     color: white;
 }
+.link{
+    color: white;
+}
 .logo{
     background-image: url("images/logo.png");
     background-size: contain;
@@ -84,7 +87,6 @@ body{
     display: inline-block;
     background-color: transparent;
     perspective: 1000px; 
-
 }
 .card{
     height: 90%;
@@ -96,7 +98,6 @@ body{
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
-
 .container.click .card {
     transform: rotateY(180deg);
 }
@@ -159,6 +160,7 @@ body{
         top: 7%;
     }
 }
+
 @media only screen 
 and (min-device-width : 768px) 
 and (max-device-width : 1024px)  { 
