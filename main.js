@@ -1,4 +1,5 @@
 $(document).ready(initializeApp);
+var initialClick = false;
 var first_card_clicked = null;
 var second_card_clicked = null;
 var total_possible_matches = 7;
@@ -75,6 +76,7 @@ function cardClicked(){
         first_card_clicked = $(this);
         first_card_clicked.parent().addClass('click');
         first_card_clicked.off('click');
+        initialClick = true;
         
     }else {
         second_card_clicked = $(this);
@@ -146,7 +148,7 @@ function display_stats(){
     if(hardMode === false){
         $('.hard-mode').html('Hard Mode: Off<br>');
     }else{
-        $('.hard-mode').html('Hard Mode: True<br>')
+        $('.hard-mode').html('Hard Mode: On<br>')
     }
     $('.time-played').append(games_played_stats).html('Games played:' + '  <br>   ' + games_played);
     $('.times-tried').html('Attempts this game:' + '     <br> ' + attempts);
@@ -155,12 +157,27 @@ function display_stats(){
     $('.accuracy').html('Accuracy:<br> ' +   '' + formattedAccuracy);
 }
 function reset_stats(){
+    if(hardMode === true && initialClick === false){
+        accuracy = 0;
+        matches = 0;
+        attempts = 0;
+        display_stats();
+        $('.container').parent().removeClass('hide');
+    }else if(hardMode === false && initialClick === false){
+        accuracy = 0;
+        matches = 0;
+        attempts = 0;
+        display_stats();
+        $('.container').parent().removeClass('hide');
+    }else{
     accuracy = 0;
     matches = 0;
     attempts = 0;
     display_stats();
     games_played++;
     $('.container').parent().removeClass('hide');
+    initialClick = false;
+    }
 }
 function resetGame(){
     hardMode = false;
