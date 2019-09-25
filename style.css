@@ -10,11 +10,11 @@ body{
     font-family: danger;
 }
 
-.link{
+a:link{
     color: white;
 }
-.link{
-    color: white;
+a:active{
+    color: darkred;
 }
 .logo{
     background-image: url("images/logo.png");
@@ -119,6 +119,9 @@ body{
     width: 100%;
     position: relative;
 }
+.container.click.flipped:hover{
+    background-color: transparent;
+}
 .rules, .game-modal{
     visibility: hidden;
     position: absolute;
@@ -140,6 +143,9 @@ body{
 }
 .hide{
     display: none;
+}
+a:visited{
+    color: darkred;
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation : portrait) { 
@@ -201,6 +207,5 @@ and (orientation : landscape) {
     .card-area{
         width: 79%;
     }
-
-
 }
+
