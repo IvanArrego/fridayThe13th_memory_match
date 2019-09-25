@@ -26,6 +26,7 @@ function initializeHardMode() {
     hardMode = true;
     $('.card-area').empty();
     randomizeAndGenerateCards();
+    reset_stats();
     display_stats();
     $('.card').click(cardClicked);
     startAudio();
@@ -70,9 +71,12 @@ function cardClicked(){
     if (first_card_clicked === null) {
         first_card_clicked = $(this);
         first_card_clicked.parent().addClass('click');
+        first_card_clicked.off('click');
+        
     }else {
         second_card_clicked = $(this);
         second_card_clicked.parent().addClass('click');
+        second_card_clicked.off('click');
         var first_card_src =  first_card_clicked.find('.front img').attr('src');
         var second_card_src = second_card_clicked.find('.front img').attr('src');
         if(first_card_src === jasonImage1 || second_card_src === jasonImage1 || first_card_src === jasonImage2 || second_card_src === jasonImage2){
@@ -89,6 +93,10 @@ function cardClicked(){
             attempts++;
             accuracy = matches/attempts;
             display_stats();
+            first_card_clicked.off('click');
+            second_card_clicked.off('click');
+            first_card_clicked.parent().addClass('flipped');
+            second_card_clicked.parent().addClass('flipped');
             first_card_clicked = null;
             second_card_clicked = null;
             if(matches === total_possible_matches){
@@ -100,6 +108,10 @@ function cardClicked(){
             attempts++;
             accuracy = matches/attempts;
             display_stats();
+            first_card_clicked.off('click');
+            second_card_clicked.off('click');
+            first_card_clicked.parent().addClass('flipped');
+            second_card_clicked.parent().addClass('flipped');
             first_card_clicked = null;
             second_card_clicked = null;
             if(matches === hard_total_possible_matches){
@@ -112,6 +124,8 @@ function cardClicked(){
             attempts++;
             accuracy = matches/attempts;
             display_stats();
+            first_card_clicked.click(cardClicked);
+            second_card_clicked.click(cardClicked);
         }
     }
 }
@@ -125,10 +139,16 @@ function hideBothCards(){
 }
 function display_stats(){
     var games_played_stats = $('<div>').addClass('games-played');
+    if(hardMode === false){
+        $('.hard-mode').html('Hard Mode: Off<br>');
+    }else{
+        $('.hard-mode').html('Hard Mode: True<br>')
+    }
     $('.time-played').append(games_played_stats).html('Games played:' + '  <br>   ' + games_played);
     $('.times-tried').html('Attempts this game:' + '     <br> ' + attempts);
+    accuracy = accuracy*100;
     var formattedAccuracy = accuracy.toFixed(2) + '%';
-    $('.accuracy').html('Chance of survival: ' + '' + formattedAccuracy);
+    $('.accuracy').html('Accuracy:<br> ' +   '' + formattedAccuracy);
 }
 function reset_stats(){
     accuracy = 0;
