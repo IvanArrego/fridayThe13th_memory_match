@@ -87,7 +87,6 @@ a:active{
     display: inline-block;
     background-color: transparent;
     perspective: 1000px; 
-
 }
 .card{
     height: 90%;
@@ -99,7 +98,6 @@ a:active{
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
-
 .container.click .card {
     transform: rotateY(180deg);
 }
@@ -168,6 +166,7 @@ a:visited{
         top: 7%;
     }
 }
+
 @media only screen 
 and (min-device-width : 768px) 
 and (max-device-width : 1024px)  { 
@@ -209,3 +208,4 @@ and (orientation : landscape) {
         width: 79%;
     }
 }
+

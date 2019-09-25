@@ -14,6 +14,7 @@ var images = ['Image1.png','Image2.png','Image3.png','Image4.png','Image5.png','
 var jasonImage1 = 'images/Image6.png';
 var jasonImage2 = 'images/Image7.png';
 var hardModeImages = ['Image6.png','Image7.png','Image6.png','Image7.png','Image6.png','Image7.png','Image6.png','Image7.png','Image9.png'];
+
 function initializeApp() {
     randomizeAndGenerateCards();
     display_stats();
@@ -21,6 +22,7 @@ function initializeApp() {
     startAudio();
     rulesModal();
 }
+
 
 function initializeHardMode() {
     hardMode = true;
@@ -52,6 +54,7 @@ function randomizeAndGenerateCards(){
         $('.card-area').append(container);
     }
 }
+
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
     while (0 !== currentIndex) {
@@ -129,6 +132,7 @@ function cardClicked(){
         }
     }
 }
+
 function hideBothCards(){
     can_click_card = false;
     first_card_clicked.parent().removeClass('click');
@@ -197,3 +201,4 @@ function loseModal(){
         $('.lose-modal, .lose-message').removeClass('active');
 })
 };
+
