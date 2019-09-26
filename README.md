@@ -27,4 +27,4 @@ Try the application live at https://ivanarregoitia.com/memory_match/
 
 ## Preview
 
-![F13 Memory Match Demo] (./images/f13-demo.gif)
+![F13 Memory Match Demo](./images/f13-demo.gif)
