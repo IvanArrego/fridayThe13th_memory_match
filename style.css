@@ -1,56 +1,97 @@
+@font-face{
+    font-family: danger;
+    src: url("./font/browncrow.otf");
+}
 body{
     margin: 0;
+    height:100vh;
+    background-color: black;
+    color: white;
+    font-family: danger;
 }
-.nav{
-    text-align: center;
+
+a:link{
+    color: white;
 }
-.logo{
-    background-color: aqua;
-    width: 20%;
-    height: 10vh;
-    /*background-image: url("Matching Game Pics/F13.png");*/
+a:active{
+    color: darkred;
 }
-.header{
-    background-color: lightcoral;
-    height: 30vh;
-    text-align: center;
+.rules-content{
     font-size: 30px;
 }
-.game-area-container{
-    background-color: pink;
-    height: 70vh;
-    display: flex;
-    width: 100%;
+.game-modal{
+    font-size: 30px;
 }
-.cardContainer{
-    width:100%;
-    display: flex;
+.logo{
+    background-image: url("images/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+.nav{
+    height: 20%;
+    text-align: center;
+    font-size: 30px;
+    background-image: url("images/header1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.header-logo{
+    width: 25%;
+    height: 20%;
+    display: inline-block;
+    left: 0%;
+    position: absolute;
+
+}
+.header-title{
+    width: 75%;
+    display: inline-block;
+    position: absolute;
+    right: 10%;
+    top: 5%;
+}
+.title{
+    top: 500px;
+}
+
+.game-area{
+    height: 80%;
+}
+.game-area-container{
+    height: 100%;
+}
+.card-area{
+    display: inline-block;
+    width: 84%;
+    height: 100%;
+    background-image: url("images/background.png");
+    background-size: cover;
 }
 .stats-area{
     height: 100%;
-    width: 10%;
-    background-color: lightgreen;
+    width: 15%;
+    display: inline-block;
+    vertical-align: top;
+    background-color: black;
+    color: white;
+    font-size: 30px;
 }
-.time-played{
+.time-played, .games-played, .accuracy{
     height: 20%;
-    background-color: indianred;
-    border: 2px solid;
-
 }
 .times-tried{
-    height: 20%;
-    background-color: lightcyan;
-    border: 2px solid;
-}
-.accuracy{
-    height: 20%;
-    background-color: lightseagreen;
-    border: 2px solid;
+    height: 30%;
 }
 .container{
-    height: 33.33%;
-    width: 100%;
+    height: 33%;
+    width: 16%;
     margin: auto;
+    display: inline-block;
+    background-color: transparent;
+    perspective: 1000px; 
 }
 .card{
     height: 90%;
@@ -58,28 +99,280 @@ body{
     position: relative;
     top: 5%;
     left: 5%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.container.click .card {
+    transform: rotateY(180deg);
+}
+.back, .front{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+.back{
+    background-image: url("images/F13-card-back-option-2.png");
+    background-size: cover;
+}
+.container:hover{
+    background-color: darkred;  
+}
+.image-front{
+    height:100%;
+    width: 100%;
+    position: relative;
+}
+.container.click.flipped:hover{
+    background-color: transparent;
+}
+.rules, .game-modal{
+    visibility: hidden;
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    color: black;
+}
 
-
+.rules.active, .win-modal.active, .lose-modal.active {
+    visibility:visible;
+}
+.rules-btn, .reset{
+    background-color: darkred;
+    color: white;
+    font-family: danger;
+    font-size: 30px;
 }
 .hide{
     display: none;
 }
-/*.imageFront{*/
-    /*width:80%;*/
-    /*display: flex;*/
-    /*margin-left: auto;*/
-    /*margin-right: auto;*/
-/*}*/
+a:visited{
+    color: darkred;
+}
 
-.back{
-    background-image: url("images/F13.png");
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+      body{
+        width: 100%;
+      }
+      .nav{
+          height: 10%;
+      }
+      .header-logo{
+          height: 10%;
+          top: 2%;
+      }
+      .logo{
+          height: 100%;
+      }
+      .header-title{
+          font-size: 40px;
+          top: 3%;
+      }
+      .stats-area{
+          font-size: 40px;
+      }
+      .rules-btn, .reset{
+          font-size: 45px;
+      }
+      .game-area{
+          height: 90%;
+      }
+      .container{
+          width: 33%;
+          height: 16%;
+      }
+      .rules-content{
+        font-size: 40px;
+    }
+    .game-modal{
+        font-size: 40px;
+    }
+    .close{
+        font-size: 40px;
+        margin-bottom: 5%;
+    }
 
 }
-.imageFront, .back{
-    height:100%;
-    width: 100%;
-    position: absolute;
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+    .stats-area{
+        font-size: 20px;
+        height: 80%;
+    }
+    .rules-content{
+        font-size: 18px;
+    }
+    .game-modal{
+        font-size: 18px;
+    }
+    .close{
+        font-size: 20px;
+        margin-bottom: 5%;
+    }
 }
-/*.card:hover >.back{*/
-    /*display: none;*/
-/*}*/
+
+/* ----------- iPhone X ----------- */
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation : portrait) { 
+    body{
+        width: 100%;
+    }
+    .nav{
+        height: 10%;
+    }
+    .header-logo{
+        height: 10%;
+        top: 2.5%;
+    }
+    .logo{
+        height: 100%;
+    }
+    .header-title{
+        font-size: 40px;
+        top: 3%;
+    }
+    .stats-area{
+        font-size: 40px;
+        height: 100%;
+    }
+    .rules-btn, .reset{
+        font-size: 45px;
+    }
+    .game-area{
+        height: 90%;
+    }
+    .container{
+        width: 33%;
+        height: 16%;
+    }
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+    .stats-area{
+        font-size: 20px !important;
+        height: 60% !important;
+    }
+    .header-logo{
+        top: 0% !important;
+    }
+    .container {
+        height: 30.5% !important;
+        width: 16% !important;
+}
+    .close{
+        font-size: 15px !important;
+        margin-bottom: 2% !important;
+    }
+    .accuracy{
+        margin-bottom: 8%;
+    }
+  }
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+      .nav{
+          height: 10%;
+      }
+      .header-logo{
+          height: 10%;
+          top: 1%;
+      }
+      .logo{
+          height: 100%;
+      }
+      .header-title{
+          font-size: 40px;
+          top: 2%;
+      }
+      .game-area{
+          height: 90%;
+          width: 100%;
+      }
+      .stats-area{
+          font-size: 40px;
+          width: 19%;
+      }
+      .rules-btn, .reset{
+          font-size: 45px;
+    }
+    .card-area{
+        width: 80%;
+    }
+    .container{
+        width: 31%;
+        height: 17%;
+    }
+    .rules-content{
+        font-size: 45px;
+    }
+    .game-modal{
+        font-size: 45px;
+    }
+    .close{
+        font-size: 35px;
+        margin-bottom: 5%;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .header-logo{
+          top: 2%;
+      }
+    .rules-content{
+        font-size: 15px;
+}
+    .game-modal{
+        font-size: 15px;
+}
+    .stats-area{
+    font-size: 25px;
+    width: 12.5%;
+    height: 90%;
+}
+    .container{
+      width: 16.5%;
+      height: 30%;
+      padding-top: 1%;
+  }
+    .rules-content{
+    font-size: 25px;
+    }
+    .game-modal{
+        font-size: 25px;
+    }
+    .close{
+        font-size: 25px;
+        margin-bottom: 5%;
+    }
+}
