@@ -32,7 +32,7 @@ Try the application live at https://ivanarregoitia.com/memory_match/
 ## Getting Started
 1. Fork and clone from this repository onto your local machine
 ```
-$ git clone https://github.com/[user_name]/fridayThe13th_momory_match.git
+$ git clone https://github.com/[user_name]/fridayThe13th_memory_match.git
 ```
 2. Open the index.html file located in the new folder
 
