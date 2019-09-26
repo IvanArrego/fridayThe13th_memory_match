@@ -191,6 +191,16 @@ a:visited{
           width: 33%;
           height: 16%;
       }
+      .rules-content{
+        font-size: 40px;
+    }
+    .game-modal{
+        font-size: 40px;
+    }
+    .close{
+        font-size: 40px;
+        margin-bottom: 5%;
+    }
 
 }
 
@@ -205,10 +215,14 @@ a:visited{
         height: 80%;
     }
     .rules-content{
-        font-size: 15px;
+        font-size: 18px;
     }
     .game-modal{
-        font-size: 15px;
+        font-size: 18px;
+    }
+    .close{
+        font-size: 20px;
+        margin-bottom: 5%;
     }
 }
 
@@ -266,12 +280,13 @@ a:visited{
         height: 30.5% !important;
         width: 16% !important;
 }
-    .rules-content{
-        font-size: 15px;
-}
-    .game-modal{
-        font-size: 15px;
-}
+    .close{
+        font-size: 15px !important;
+        margin-bottom: 2% !important;
+    }
+    .accuracy{
+        margin-bottom: 8%;
+    }
   }
 /* ----------- iPad 3, 4 and Pro 9.7" ----------- */
 
@@ -313,7 +328,16 @@ a:visited{
         width: 31%;
         height: 17%;
     }
-
+    .rules-content{
+        font-size: 45px;
+    }
+    .game-modal{
+        font-size: 45px;
+    }
+    .close{
+        font-size: 35px;
+        margin-bottom: 5%;
+    }
 }
 
 /* Landscape */
@@ -331,14 +355,24 @@ a:visited{
     .game-modal{
         font-size: 15px;
 }
-  .stats-area{
+    .stats-area{
     font-size: 25px;
     width: 12.5%;
     height: 90%;
 }
-  .container{
+    .container{
       width: 16.5%;
       height: 30%;
       padding-top: 1%;
   }
+    .rules-content{
+    font-size: 25px;
+    }
+    .game-modal{
+        font-size: 25px;
+    }
+    .close{
+        font-size: 25px;
+        margin-bottom: 5%;
+    }
 }
