@@ -2,7 +2,7 @@
 
 ## Overview
 
-> Friday The 13th - Memory match is a game with 18 cards face down and the player has to try and match pairs of matching cards by remembering the position of the cards. However, Jason is lurking in the cards and should you match one of the two pairs of Jason cards then the end is near. Please note, when a Jason card is clicked, audio will play.
+Friday The 13th - Memory match is a game with 18 cards face down and the player has to try and match pairs of matching cards by remembering the position of the cards. However, Jason is lurking in the cards and should you match one of the two pairs of Jason cards then the end is near. Please note, when a Jason card is clicked, audio will play.
 
 Once the player has match 2 cards of the same counselor they will be displayed face up until all counselor pairs have been matched. Once all counselor pairs have been matched the user will be
 displayed a message that they have won the game. Should the player match a Jason pair then a message will display a message that they have lost. As the user clicks through the cards stats will be kept letting the user know how many attempts and the
