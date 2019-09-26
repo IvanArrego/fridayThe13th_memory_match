@@ -1,17 +1,29 @@
-# Memory Match
+# Friday the 13th - Memory Match
 
 ## Overview
 
-> Memory match is a game with 18 cards face down and the player has to try and match all 9 pairs of matching cards by remembering the position of the cards.
-Once the player has match 2 cards they will be displayed face up until all pairs have been matched. Once all pairs have been matched the user will be
-displayed a message that they have won the game. As the user clicks through the cards stats will be kept letting the user know how many attempts and the
-accuracy of their choices.
+> Friday The 13th - Memory match is a game with 18 cards face down and the player has to try and match pairs of matching cards by remembering the position of the cards. However, Jason is lurking in the cards and should you match one of the two pairs of Jason cards then the end is near. Please note, when a Jason card is clicked, audio will play.
 
-> <a href="https://docs.google.com/presentation/d/1zlSHYatpaPsrq4LuOtyuE-RRIom4vRo-lXovQ0zPV0U/pub?start=false&loop=false&delayms=3000" target="_blank">Design Overview</a>
+Once the player has match 2 cards of the same counselor they will be displayed face up until all counselor pairs have been matched. Once all counselor pairs have been matched the user will be
+displayed a message that they have won the game. Should the player match a Jason pair then a message will display a message that they have lost. As the user clicks through the cards stats will be kept letting the user know how many attempts and the
+accuracy of their choices. For a real challenge, try out Hard Mode. In this mode there is only one counselor pair and ther rest are Jason, good luck!
 
-> <a href="https://drive.google.com/open?id=0B3R9g7F9YRS6SHd3Q3lRdWF0RkU" target="_blank">Flow Document</a>
+## Technologies Used
+- Javascript
+- CSS3
+- HTML5
+- jQuery
 
-> ### Versions
-> - Version 1.0 (v1.0) - <a href="https://github.com/Learning-Fuze/memory_match/tree/version1.0">View Details</a>
-> - Version 0.5 (v0.5) - <a href="https://github.com/Learning-Fuze/memory_match/tree/version0.5">View Details</a>
-> - Version 0.1 (v0.1) - <a href="https://github.com/Learning-Fuze/memory_match/tree/version0.1">View Details</a>
+## Live Demo
+Try the application live at https://ivanarregoitia.com/memory_match/
+
+## Features
+- Player can click on a card to reveal the face of the card
+- Player can match two of the same cards for a pair
+- Player can track their stats as they progress
+- Player can reset the game to restart the game
+- Player can click on rules to read the rules
+- Player can try their luck/skills with our hard mode
+
+## Preview
+
