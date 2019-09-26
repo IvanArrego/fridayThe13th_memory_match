@@ -28,3 +28,12 @@ Try the application live at https://ivanarregoitia.com/memory_match/
 ## Preview
 
 ![F13 Memory Match Demo](./images/f13-demo.gif)
+
+## Getting Started
+1. Fork and clone from this repository onto your local machine
+```
+$ git clone https://github.com/[user_name]/fridayThe13th_momory_match.git
+```
+2. Open the index.html file located in the new folder
+
+3. Game is ready to be played.
